@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.capsule.taskmanager.model.Task;
+import com.capsule.taskmanager.model.Users;
 import com.capsule.taskmanager.repository.TaskRepository;
 
 @Service
@@ -17,9 +18,9 @@ public class TaskService {
 	TaskRepository<Task> repo;
 	
 	@Transactional
-	public boolean addTask(Task task)
+	public Task addTask(Task task)
 	{
-		return repo.save(task) != null;
+		return repo.save(task);
 		
 	}
 
@@ -43,6 +44,13 @@ public class TaskService {
 		return updatedTask;
 		
 	}
+
+	@Transactional
+	public List<Task> getTaskbyUser(int userid) {
+		return repo.findBytaskid(userid);
+	}
+
+	
 
 	
 

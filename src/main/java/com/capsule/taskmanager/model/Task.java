@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +12,7 @@ import javax.persistence.Table;
 @Table(name="Task")
 public class Task {
 	
-	@Id
+	
 	@Column(name="task")
 	private String task;
 	
@@ -29,6 +30,14 @@ public class Task {
 	
 	@Column(name="endFlag")
 	private int endFlag;
+	
+	@Id
+	@GeneratedValue
+	@Column(name="taskid")
+	private int taskid;
+	
+	@Column(name="projectid")
+	private int projectid;
 	
 	public Task() {}
 
@@ -77,17 +86,55 @@ public class Task {
 	public void setEndDate(Date endDate) {
 		EndDate = endDate;
 	}
+	
+	
 
-	public Task(String task, String parentTask, int priority, Date startDate, Date endDate) {
+
+
+
+
+	public int getTaskid() {
+		return taskid;
+	}
+
+
+
+	public void setTaskid(int taskid) {
+		this.taskid = taskid;
+	}
+
+
+
+	public int getProjectid() {
+		return projectid;
+	}
+
+
+
+	public void setProjectid(int i) {
+		this.projectid = i;
+	}
+
+
+
+	
+
+
+
+
+
+	public Task(String task, String parentTask, int priority, Date startDate, Date endDate, int endFlag, int taskid,
+			int projectid) {
 		super();
-		task = task;
+		this.task = task;
 		ParentTask = parentTask;
 		Priority = priority;
 		StartDate = startDate;
 		EndDate = endDate;
+		this.endFlag = endFlag;
+		this.taskid = taskid;
+		this.projectid = projectid;
 	}
-
-
 
 
 
@@ -106,8 +153,13 @@ public class Task {
 	@Override
 	public String toString() {
 		return "Task [task=" + task + ", ParentTask=" + ParentTask + ", Priority=" + Priority + ", StartDate="
-				+ StartDate + ", EndDate=" + EndDate + ", endFlag=" + endFlag + "]";
+				+ StartDate + ", EndDate=" + EndDate + ", endFlag=" + endFlag + ", testid=" + taskid + ", projectid="
+				+ projectid + "]";
 	}
+
+
+
+	
 
 
 
