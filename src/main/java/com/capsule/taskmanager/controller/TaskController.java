@@ -62,6 +62,7 @@ public class TaskController {
 		
 		Task insertedTask = operate.addTask(t);
 		userService.updateTaskId(insertedTask.getTaskid(),user);
+		userService.updateProjectId(insertedTask.getProjectid(), user);
 		t.setTaskid(insertedTask.getTaskid());
 		
 		return t;
@@ -246,11 +247,11 @@ public class TaskController {
 	
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value = "/getUserTasks", method = RequestMethod.POST)
-	public List<Task> getUserTasks(@RequestParam("user") String user) {
-		Users u = userService.getuserbyname(user);
+	@RequestMapping(value = "/getProjectTask", method = RequestMethod.POST)
+	public List<Task> getUserTasks(@RequestParam("project") String project) {
+		int p = projectService.getprojectId(project);
 		
-		List<Task> t = operate.getTaskbyUser(u.getTask_id());
+		List<Task> t = operate.getTaskbyProject(p);
 		return t;
 	}
 		

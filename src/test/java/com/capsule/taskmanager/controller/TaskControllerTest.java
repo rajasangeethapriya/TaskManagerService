@@ -25,7 +25,7 @@ import com.capsule.taskmanager.service.TaskService;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = TaskController.class, secure = false)
-public class TaskControllerTest {/*
+public class TaskControllerTest {
 	
 	@Autowired 
 	MockMvc mockmvc;
@@ -33,11 +33,11 @@ public class TaskControllerTest {/*
 	@MockBean
 	private TaskService taskService;
 	
-	//Task mockTask = new Task ("T1", "PT1", 1, new Date(1, 9, 2019), new Date(1, 9, 2019));
+	Task mockTask = new Task ("T1", "PT1", 1, new Date(1, 9, 2019), new Date(1, 9, 2019), 0, 0, 0);
 	
 
 	@Test
-	@Ignore
+	//@Ignore
 	public void getTask() throws Exception {
 		Mockito.when(
 				taskService.getallTask()).thenReturn((List<Task>) mockTask);
@@ -57,7 +57,7 @@ public class TaskControllerTest {/*
 	}
 	
 	@Test
-	@Ignore
+	//@Ignore
 
 	public void add() throws Exception {
 		Mockito.when(
@@ -78,7 +78,7 @@ public class TaskControllerTest {/*
 	}
 	
 	@Test
-	@Ignore
+	//@Ignore
 
 	public void update() throws Exception {
 		Mockito.when(
@@ -98,4 +98,4 @@ public class TaskControllerTest {/*
 				.getContentAsString(), false);
 	}
 
-*/}
+}

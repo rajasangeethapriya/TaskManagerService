@@ -50,6 +50,12 @@ public class TaskService {
 		return repo.findBytaskid(userid);
 	}
 
+	@Transactional
+	public List<Task> getTaskbyProject(int p) {
+	
+		return repo.findByProjectid(p);
+	}
+
 	
 
 	

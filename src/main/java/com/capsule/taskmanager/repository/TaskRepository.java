@@ -15,6 +15,8 @@ public interface TaskRepository<T> extends CrudRepository<Task, Long> {
 
 	List<Task> findBytaskid(int userid);
 
+	List<Task> findByProjectid(int p);
+
 	
 
 }

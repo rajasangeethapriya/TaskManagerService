@@ -59,8 +59,9 @@ public class ProjectService {
 		existingProject.setCount(0);
 		existingProject .setEndDate(projectpojo.getEndDate());
 		existingProject.setStartDate(projectpojo.getStartDate());
-		existingProject.setIsCompleted(projectpojo.getIsCompleted());
+		existingProject.setIsCompleted(existingProject.getIsCompleted());
 		existingProject.setPriority(projectpojo.getPriority());
+		existingProject.setProjectId(existingProject.getProjectId());
 		existingProject.setProject(projectpojo.getProject());
 		
 		Project updatedProject = repo.save(existingProject);
